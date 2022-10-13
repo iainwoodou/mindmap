@@ -1,4 +1,9 @@
 <template>
+  <select id="language-select" v-model="locale">
+    <option value="zh">简体中文</option>
+    <option value="en">English</option>
+    <option value="ptBR">Brazilian Portuguese</option>
+  </select>
   <div id="mmcontainer">
     <mindmap
       v-model="mm"
@@ -13,7 +18,9 @@
       :add-node-btn="true"
       :download-btn="true"
       :sharp-corner="false"
-      :ctm="false"
+      :ctm="true"
+      :locale="en"
+      :timetravel="true"
     ></mindmap>
   </div>
 </template>
@@ -29,21 +36,10 @@ export default {
   },
   data() {
     return {
+      locale: "en",
       mm: [
         {
-          name: "werqer",
-          children: [
-            {
-              name: "asdfasdfasd",
-              children: [{ name: "HTML & CSS" }, { name: "JavaScript" }]
-            },
-            {
-              name: "asdfasdfasdf",
-              collapse: true,
-              children: [{ name: "asdfasdfasd" }]
-            },
-            { name: "asdfasdfasd", left: true }
-          ]
+          name: "Start"
         }
       ]
     };
@@ -55,13 +51,7 @@ export default {
   position: absolute;
   left: 0px;
   right: 0px;
-  top: 0px;
+  top: 60px;
   bottom: 0px;
-}
-
-.Mindmap_text_fgvb6 {
-  fill: #f00 !important;
-  background-color: blue;
-  border: 10px solid red;
 }
 </style>
